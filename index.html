@@ -1,0 +1,360 @@
+<!--
+  Fatemi Calendar — Simple one-file landing page
+  - Responsive (mobile + desktop)
+  - No frameworks, no build step
+  - Replace the placeholders (APP_STORE_LINK, screenshot image, privacy/terms links)
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Basic page setup -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light" />
+
+  <!-- SEO / social (optional but nice) -->
+  <title>Fatemi Calendar</title>
+  <meta name="description" content="Fatemi Calendar — a simple, fast calendar app." />
+
+  <!--
+    Single-file styling (modern, minimal, responsive)
+    Keep it simple: system font, clean layout, subtle effects
+  -->
+  <style>
+    /* ---------- Reset / base ---------- */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.92);
+      background: radial-gradient(1200px 600px at 20% 10%, rgba(255,255,255,0.08), transparent 60%),
+                  radial-gradient(900px 500px at 80% 20%, rgba(255,255,255,0.06), transparent 55%),
+                  linear-gradient(180deg, #0b0f1a, #070a12);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ---------- Layout ---------- */
+    .container {
+      width: min(1100px, 100%);
+      margin: 0 auto;
+      padding: 28px 18px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 8px 0 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.06));
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.30);
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+    }
+
+    .logo span {
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    .brand-name {
+      font-weight: 650;
+      font-size: 15px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .top-link {
+      font-size: 14px;
+      opacity: 0.85;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 22px;
+      align-items: center;
+      padding: 26px 0 10px;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+      header { padding-bottom: 14px; }
+    }
+
+    .card {
+      border-radius: 22px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.35);
+      overflow: hidden;
+    }
+
+    .hero-left {
+      padding: 26px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-left { padding: 20px; }
+    }
+
+    .headline {
+      margin: 0 0 10px 0;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .subhead {
+      margin: 0 0 18px 0;
+      font-size: 16px;
+      color: rgba(255,255,255,0.78);
+      max-width: 56ch;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    /* ---------- App Store button ---------- */
+    .appstore-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.92);
+      color: #0b0f1a;
+      font-weight: 650;
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.30);
+      transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+    }
+
+    .appstore-btn:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+    }
+
+    .appstore-btn:active {
+      transform: translateY(0px);
+      opacity: 0.92;
+    }
+
+    .apple-icon {
+      width: 18px;
+      height: 18px;
+      display: inline-block;
+    }
+
+    .small-note {
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+    }
+
+    /* ---------- Screenshot panel ---------- */
+    .hero-right {
+      padding: 18px;
+      display: grid;
+      place-items: center;
+    }
+
+    .phone-frame {
+      width: min(360px, 100%);
+      aspect-ratio: 9 / 19.5;
+      border-radius: 34px;
+      background: rgba(0,0,0,0.30);
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 22px 60px rgba(0,0,0,0.45);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .phone-notch {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 46%;
+      height: 18px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(8px);
+    }
+
+    .screenshot {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02));
+    }
+
+    .placeholder {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      text-align: center;
+      color: rgba(255,255,255,0.70);
+      font-size: 14px;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      margin-top: 26px;
+      padding: 18px 0 10px;
+      border-top: 1px solid rgba(255,255,255,0.10);
+      color: rgba(255,255,255,0.70);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 13px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-links a {
+      opacity: 0.85;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+    }
+
+    .copyright {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Top bar -->
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <!-- Simple placeholder logo -->
+          <span>FC</span>
+        </div>
+        <div class="brand-name">Fatemi Calendar</div>
+      </div>
+
+      <!-- Optional top link (kept simple) -->
+      <a class="top-link" href="#download">Download</a>
+    </header>
+
+    <!-- Main hero -->
+    <main class="hero">
+      <!-- Left: text + CTA -->
+      <section class="card hero-left">
+        <h1 class="headline">Fatemi Calendar</h1>
+        <p class="subhead">
+          A clean, fast calendar experience. Open the app, find what you need, and move on with your day.
+        </p>
+
+        <div id="download" class="cta-row">
+          <!-- Replace # with your App Store URL -->
+          <a class="appstore-btn" href="#" target="_blank" rel="noopener noreferrer">
+            <!-- Apple logo (inline SVG, no external assets) -->
+            <svg class="apple-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M16.7 13.2c0-1.7 1-3.1 2.6-3.8-0.9-1.3-2.3-2-3.9-2.1-1.7-0.2-3.3 1-4.1 1s-2.1-1-3.5-1C3 7.4 1.9 8.7 1.2 10.2c-1.5 3.2-0.4 7.8 1.1 10.4 0.8 1.3 1.7 2.8 3 2.8 1.2 0 1.7-0.8 3.1-0.8s1.9 0.8 3.1 0.8c1.3 0 2.2-1.2 3-2.5 0.9-1.4 1.2-2.7 1.2-2.8-2.9-1.1-3.5-4.7-3.5-4.9zM13.9 2.3c0.7-0.9 1.2-2.1 1.1-3.3-1.1 0.1-2.4 0.8-3.1 1.7-0.7 0.8-1.3 2-1.1 3.2 1.2 0.1 2.4-0.6 3.1-1.6z"/>
+            </svg>
+
+            <span>Download on the App Store</span>
+          </a>
+
+          <div class="small-note">
+            Replace the button link with your App Store URL.
+          </div>
+        </div>
+      </section>
+
+      <!-- Right: screenshot -->
+      <section class="card hero-right" aria-label="App screenshot">
+        <div class="phone-frame">
+          <div class="phone-notch" aria-hidden="true"></div>
+
+          <!-- Option A: Use an image. Put screenshot.jpg in the same folder and uncomment this: -->
+          <!--
+          <img class="screenshot" src="screenshot.jpg" alt="Fatemi Calendar app screenshot" />
+          -->
+
+          <!-- Option B: Placeholder (no image needed) -->
+          <div class="placeholder">
+            <div>
+              <div style="font-weight:650; font-size:15px; margin-bottom:8px;">App Screenshot</div>
+              <div style="opacity:0.9;">
+                Add your screenshot by placing <code>screenshot.jpg</code> next to this HTML file
+                and uncommenting the image tag.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer with Privacy + Terms -->
+    <footer>
+      <div class="footer-links">
+        <!-- Replace these with your real links -->
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+      </div>
+
+      <div class="copyright">
+        © <span id="year"></span> Fatemi Calendar
+      </div>
+    </footer>
+  </div>
+
+  <!-- Tiny script for the year (still one-file) -->
+  <script>
+    // Update the footer year automatically
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
