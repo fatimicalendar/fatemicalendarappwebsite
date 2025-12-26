@@ -198,6 +198,7 @@
     footer {
       margin-top: 60px;
       padding: 18px 0 10px;
+      border-top: 1px solid rgba(255,255,255,0.10);
       color: rgba(255,255,255,0.70);
       display: flex;
       justify-content: space-between;
@@ -226,10 +227,6 @@
       opacity: 0.8;
     }
 
-    /* ---------- RTL Support ---------- */
-    [dir="rtl"] .brand {
-      flex-direction: row-reverse;
-    }
   </style>
 </head>
 
@@ -355,14 +352,4 @@
     }
 
     // Language switcher event listeners
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        setLanguage(btn.dataset.lang);
-      });
-    });
-
-    // Initialize with saved or default language
-    setLanguage(currentLang);
-  </script>
-</body>
-</html>
+    document.
