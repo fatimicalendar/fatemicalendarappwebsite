@@ -227,6 +227,10 @@
       opacity: 0.8;
     }
 
+    /* ---------- RTL Support ---------- */
+    [dir="rtl"] .brand {
+      flex-direction: row-reverse;
+    }
   </style>
 </head>
 
@@ -352,4 +356,14 @@
     }
 
     // Language switcher event listeners
-    document.
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        setLanguage(btn.dataset.lang);
+      });
+    });
+
+    // Initialize with saved or default language
+    setLanguage(currentLang);
+  </script>
+</body>
+</html>
