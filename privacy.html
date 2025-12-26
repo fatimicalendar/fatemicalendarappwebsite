@@ -1,0 +1,267 @@
+<!--
+  Fatemi Calendar — Privacy Policy (one-file page, short + clear)
+  - Built to match your app: local-only, no accounts, no analytics, no data collection
+  - Replace the [Last updated] date and optional contact info if you want
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Basic page setup -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light" />
+
+  <title>Privacy Policy — Fatemi Calendar</title>
+  <meta name="description" content="Privacy Policy for Fatemi Calendar." />
+
+  <style>
+    /* ---------- Base ---------- */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.92);
+      background: radial-gradient(1200px 600px at 20% 10%, rgba(255,255,255,0.08), transparent 60%),
+                  radial-gradient(900px 500px at 80% 20%, rgba(255,255,255,0.06), transparent 55%),
+                  linear-gradient(180deg, #0b0f1a, #070a12);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ---------- Layout ---------- */
+    .container {
+      width: min(900px, 100%);
+      margin: 0 auto;
+      padding: 28px 18px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 0 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.06));
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.30);
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+    }
+
+    .logo span {
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    .brand-name {
+      font-weight: 650;
+      font-size: 15px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .back-link {
+      font-size: 14px;
+      opacity: 0.85;
+    }
+
+    .card {
+      border-radius: 22px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.35);
+      overflow: hidden;
+      padding: 22px;
+    }
+
+    @media (max-width: 600px) {
+      .card { padding: 18px; }
+    }
+
+    h1 {
+      margin: 0 0 6px 0;
+      font-size: clamp(22px, 3.6vw, 34px);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    .meta {
+      color: rgba(255,255,255,0.72);
+      font-size: 14px;
+      margin: 0 0 16px 0;
+    }
+
+    h2 {
+      margin: 18px 0 8px 0;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+
+    p, li {
+      color: rgba(255,255,255,0.84);
+      font-size: 15px;
+    }
+
+    ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+    }
+
+    .highlight {
+      margin-top: 14px;
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: rgba(255,255,255,0.80);
+      font-size: 14px;
+    }
+
+    code {
+      padding: 2px 6px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.12);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.95em;
+    }
+
+    footer {
+      margin-top: 18px;
+      padding: 16px 0 10px;
+      border-top: 1px solid rgba(255,255,255,0.10);
+      color: rgba(255,255,255,0.70);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 13px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-links a { opacity: 0.85; }
+    .footer-links a:hover { opacity: 1; }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Top bar -->
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"><span>FC</span></div>
+        <div class="brand-name">Fatemi Calendar</div>
+      </div>
+
+      <!-- Update this href to your landing page file -->
+      <a class="back-link" href="index.html">Back</a>
+    </div>
+
+    <!-- Main content -->
+    <main class="card">
+      <h1>Privacy Policy</h1>
+      <p class="meta">Last updated: <strong>[December 26, 2025]</strong></p>
+
+      <p>
+        <strong>Fatemi Calendar</strong> is a simple calendar calculator. It runs locally on your device and is designed
+        to work without collecting any personal data.
+      </p>
+
+      <div class="highlight">
+        <strong>In short:</strong> We do not collect, store, share, or sell any user data.
+      </div>
+
+      <h2>What the App Does</h2>
+      <ul>
+        <li>Shows Fatemi calendar dates and conversions.</li>
+        <li>Does not let you create events, add personal notes, or sync with calendars.</li>
+        <li>Works like a calculator: you use it, and that’s it.</li>
+      </ul>
+
+      <h2>Data We Collect</h2>
+      <p>
+        <strong>None.</strong> We do not collect any data from you or your device.
+      </p>
+      <ul>
+        <li>No sign in, no sign up, no accounts.</li>
+        <li>No analytics, no tracking, no advertising.</li>
+        <li>No third-party SDKs.</li>
+        <li>No server storage (the app does not send your data anywhere).</li>
+      </ul>
+
+      <h2>Third-Party Services</h2>
+      <p>
+        The app is built using Apple’s iOS frameworks (Swift / Apple APIs). We do not use third-party libraries or
+        third-party tracking tools.
+      </p>
+
+      <h2>Your Rights</h2>
+      <ul>
+        <li>You can stop using the app at any time.</li>
+        <li>You can delete the app at any time to remove it from your device.</li>
+        <li>
+          If we ever change how the app works in a way that affects privacy, we will update this policy and update the
+          “Last updated” date.
+        </li>
+      </ul>
+
+      <h2>Changes to This Policy</h2>
+      <p>
+        If we make changes, we will update this page and the date at the top. Any changes apply from the date shown.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        If you have questions about this policy, you can contact us at:
+      </p>
+      <ul>
+        <li>Email: <code>[support@yourdomain.com]</code></li>
+      </ul>
+    </main>
+
+    <!-- Footer links -->
+    <footer>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+      </div>
+      <div>© <span id="year"></span> Fatemi Calendar</div>
+    </footer>
+  </div>
+
+  <script>
+    // Keep footer year current
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
