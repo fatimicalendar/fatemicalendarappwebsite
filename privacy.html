@@ -1,13 +1,8 @@
-<!--
-  Fatemi Calendar — Privacy Policy (one-file page, short + clear)
-  - Built to match your app: local-only, no accounts, no analytics, no data collection
-  - Replace the [Last updated] date and optional contact info if you want
--->
+
 
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- Basic page setup -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light" />
@@ -16,11 +11,9 @@
   <meta name="description" content="Privacy Policy for Fatemi Calendar." />
 
   <style>
-    /* ---------- Base ---------- */
     *, *::before, *::after { box-sizing: border-box; }
     html, body { height: 100%; }
 
-    /* Make the page behind match the same single theme */
     html { background: #070a12; }
 
     body {
@@ -29,7 +22,6 @@
       line-height: 1.6;
       color: rgba(255,255,255,0.92);
 
-      /* ONE background for the whole page */
       background:
         radial-gradient(1200px 600px at 20% 10%, rgba(255,255,255,0.08), transparent 60%),
         radial-gradient(900px 500px at 80% 20%, rgba(255,255,255,0.06), transparent 55%),
@@ -42,13 +34,11 @@
     a { color: inherit; text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* ---------- Layout ---------- */
     .container {
       width: min(900px, 100%);
       margin: 0 auto;
       padding: 28px 18px;
 
-      /* Keep footer pinned nicely and prevent weird “background spill” illusions */
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -79,7 +69,7 @@
       display: grid;
       place-items: center;
       flex: 0 0 auto;
-      overflow: hidden; /* if you later switch FC to an image */
+      overflow: hidden; 
     }
 
     .logo span {
@@ -110,7 +100,6 @@
       overflow: hidden;
       padding: 22px;
 
-      /* Let main content take the remaining height */
       flex: 1;
     }
 
@@ -178,7 +167,6 @@
       flex-wrap: wrap;
       font-size: 13px;
 
-      /* IMPORTANT: footer has NO background */
       background: transparent;
     }
 
@@ -196,54 +184,27 @@
 
 <body>
   <div class="container">
-    <!-- Top bar -->
     <div class="topbar">
       <div class="brand">
         <div class="logo" aria-hidden="true"><span>FC</span></div>
         <div class="brand-name">Fatemi Calendar</div>
       </div>
 
-      <!-- Update this href to your landing page file -->
       <a class="back-link" href="index.html">Back</a>
     </div>
 
-    <!-- Main content -->
     <main class="card">
       <h1>Privacy Policy</h1>
       <p class="meta">Last updated: <strong>[December 26, 2025]</strong></p>
 
-      <p>
-        <strong>Fatemi Calendar</strong> is a simple calendar calculator. It runs locally on your device and is designed
-        to work without collecting any personal data.
-      </p>
 
-      <div class="highlight">
-        <strong>In short:</strong> We do not collect, store, share, or sell any user data.
-      </div>
-
-      <h2>What the App Does</h2>
+      <h2>Data</h2>
       <ul>
-        <li>Shows Fatemi calendar dates and conversions.</li>
-        <li>Does not let you create events, add personal notes, or sync with calendars.</li>
-        <li>Works like a calculator: you use it, and that’s it.</li>
-      </ul>
+        <li>No sign-in, no sign-up, and no account is needed to use the App, other than your normal Apple AppStore account to download it.</li>
+        <li>We don’t store any of your data on our servers.</li>
+        <li>We do not collect any data from you or your device.</li>
 
-      <h2>Data We Collect</h2>
-      <p>
-        <strong>None.</strong> We do not collect any data from you or your device.
-      </p>
-      <ul>
-        <li>No sign in, no sign up, no accounts.</li>
-        <li>No analytics, no tracking, no advertising.</li>
-        <li>No third-party SDKs.</li>
-        <li>No server storage (the app does not send your data anywhere).</li>
       </ul>
-
-      <h2>Third-Party Services</h2>
-      <p>
-        The app is built using Apple’s iOS frameworks (Swift / Apple APIs). We do not use third-party libraries or
-        third-party tracking tools.
-      </p>
 
       <h2>Your Rights</h2>
       <ul>
@@ -255,17 +216,12 @@
         </li>
       </ul>
 
-      <h2>Changes to This Policy</h2>
-      <p>
-        If we make changes, we will update this page and the date at the top. Any changes apply from the date shown.
-      </p>
-
       <h2>Contact</h2>
       <p>
         If you have questions about this policy, you can contact us at:
       </p>
       <ul>
-        <li>Email: <code>[support@yourdomain.com]</code></li>
+        <li>Email: <code>info@timeframesolutions.com</code></li>
       </ul>
     </main>
 
