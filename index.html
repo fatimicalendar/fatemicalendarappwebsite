@@ -7,8 +7,8 @@
   <meta name="color-scheme" content="dark light" />
 
   <!-- SEO / social (optional but nice) -->
-  <title>تقويم فاطمي</title>
-  <meta name="description" content="التقويم الفاطمي — تطبيق تقويم بسيط وسريع" />
+  <title>التقويم الفاطمي</title>
+  <meta name="description" content="التقويم الفاطمي — تطبيق التقويم بسيط وسريع" />
 
   <style>
     /* ---------- Reset / base ---------- */
@@ -174,6 +174,7 @@
     .appstore-btn img {
       height: 54px;
       width: auto;
+      display: block;
     }
 
     /* ---------- Screenshot ---------- */
@@ -277,7 +278,7 @@
           <img src="appicon.jpg" alt="" />
         </div>
 
-        <div class="brand-name" data-i18n="brandName">تقويم فاطمي</div>
+        <div class="brand-name" data-i18n="brandName">التقويم الفاطمي</div>
       </div>
 
       <!-- Language Switcher -->
@@ -291,15 +292,16 @@
     <!-- Main hero -->
     <main class="hero">
       <div>
-        <h1 class="headline" data-i18n="headline">تقويم فاطمي</h1>
+        <h1 class="headline" data-i18n="headline">التقويم الفاطمي</h1>
         <p class="subhead" data-i18n="subhead">
-          تجربة تقويم نظيفة وسريعة. افتح التطبيق، ابحث عن ما تحتاجه، وواصل يومك.
+          تجربة التقويم نظيفة وسريعة. افتح التطبيق، ابحث عن ما تحتاجه، وواصل يومك.
         </p>
 
+        <!-- App Store badge uses LOCAL image (same folder as index.html) -->
         <a class="appstore-btn" href="#" target="_blank" rel="noopener noreferrer">
           <img
             id="appStoreBadge"
-            src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ar?size=250x83&amp;releaseDate=1301875200"
+            src="download-on-the-app-store.jpg"
             alt="التحميل من متجر التطبيقات"
           />
         </a>
@@ -309,7 +311,7 @@
       <div class="screenshot-section">
         <div class="phone-frame">
           <div class="phone-notch" aria-hidden="true"></div>
-          <img class="screenshot" src="screenshot.jpg" alt="لقطة شاشة لتطبيق تقويم فاطمي" data-i18n-alt="screenshotAlt" />
+          <img class="screenshot" src="screenshot.jpg" alt="لقطة شاشة لتطبيق التقويم الفاطمي" data-i18n-alt="screenshotAlt" />
         </div>
       </div>
     </main>
@@ -322,24 +324,27 @@
       </div>
 
       <div class="copyright">
-        © <span id="year"></span> <span data-i18n="brandName">تقويم فاطمي</span>
+        © <span id="year"></span> <span data-i18n="brandName">التقويم الفاطمي</span>
       </div>
     </footer>
   </div>
 
   <script>
-    // Translations
+    // Comment: All translations for the landing page text live here.
     const translations = {
       ar: {
         brandName: 'التقويم الفاطمي',
         headline: 'التقويم الفاطمي',
-        subhead: 'تجربة تقويم نظيفة وسريعة. افتح التطبيق، ابحث عن ما تحتاجه، وواصل يومك.',
+        subhead: 'تجربة التقويم نظيفة وسريعة. افتح التطبيق، ابحث عن ما تحتاجه، وواصل يومك.',
         privacyPolicy: 'سياسة الخصوصية',
         termsOfUse: 'شروط الاستخدام',
         screenshotAlt: 'لقطة شاشة لتطبيق التقويم الفاطمي',
-        appStoreBadge: 'https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ar?size=250x83&releaseDate=1301875200',
-        title: 'تقويم فاطمي',
-        description: 'التقويم الفاطمي — تطبيق تقويم بسيط وسريع'
+        title: 'التقويم الفاطمي',
+        description: 'التقويم الفاطمي — تطبيق التقويم بسيط وسريع',
+        // Comment: Local badge image path (same folder as index.html)
+        appStoreBadge: 'download-on-the-app-store.jpg',
+        // Comment: Alt text for the badge in this language
+        appStoreAlt: 'التحميل من متجر التطبيقات'
       },
       en: {
         brandName: 'Fatemi Calendar',
@@ -348,61 +353,66 @@
         privacyPolicy: 'Privacy Policy',
         termsOfUse: 'Terms of Use',
         screenshotAlt: 'Fatemi Calendar app screenshot',
-        appStoreBadge: 'https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&releaseDate=1301875200',
         title: 'Fatemi Calendar',
-        description: 'Fatemi Calendar — a simple, fast calendar app.'
+        description: 'Fatemi Calendar — a simple, fast calendar app.',
+        // Comment: Same local badge image file (you can swap to an English version later if you want)
+        appStoreBadge: 'download-on-the-app-store.jpg',
+        // Comment: Alt text for the badge in this language
+        appStoreAlt: 'Download on the App Store'
       }
     };
 
-    // Get saved language or default to Arabic
+    // Comment: Get saved language or default to Arabic
     let currentLang = localStorage.getItem('lang') || 'ar';
 
-    // Set year
+    // Comment: Set the copyright year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Apply language
+    // Comment: Apply language to the page
     function setLanguage(lang) {
-      // Save current language
+      // Comment: Save current language
       currentLang = lang;
       localStorage.setItem('lang', lang);
 
-      // Update HTML attributes
+      // Comment: Update HTML attributes
       document.documentElement.lang = lang;
       document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
 
-      // Update meta tags
+      // Comment: Update meta tags
       document.title = translations[lang].title;
       document.querySelector('meta[name="description"]').content = translations[lang].description;
 
-      // Update all text content
+      // Comment: Update all text content
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         el.textContent = translations[lang][key];
       });
 
-      // Update alt attributes
+      // Comment: Update alt attributes
       document.querySelectorAll('[data-i18n-alt]').forEach(el => {
         const key = el.getAttribute('data-i18n-alt');
         el.alt = translations[lang][key];
       });
 
-      // Update App Store badge
-      document.getElementById('appStoreBadge').src = translations[lang].appStoreBadge;
+      // Comment: Update App Store badge to local file (and alt text per language)
+      const badge = document.getElementById('appStoreBadge');
+      badge.src = translations[lang].appStoreBadge;
+      badge.alt = translations[lang].appStoreAlt;
 
-      // Update active button
+      // Comment: Update active button styles
       document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.lang === lang);
       });
     }
 
-    // Language switcher event listeners
+    // Comment: Language switcher event listeners
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         setLanguage(btn.dataset.lang);
       });
     });
 
-    // Initialize with saved or default language
+    // Comment: Initialize with saved or default language
     setLanguage(currentLang);
   </script>
 </body>
