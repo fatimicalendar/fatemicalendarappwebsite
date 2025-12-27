@@ -13,15 +13,25 @@
   <style>
     /* ---------- Reset / base ---------- */
     *, *::before, *::after { box-sizing: border-box; }
+
+    /* Keep html and body aligned so there is only ONE background source */
     html, body { height: 100%; }
+
+    /* Optional: ensure the “page behind” uses the same color as body (still one theme) */
+    html { background: #070a12; }
+
     body {
       margin: 0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
       line-height: 1.5;
       color: rgba(255, 255, 255, 0.92);
-      background: radial-gradient(1200px 600px at 20% 10%, rgba(255,255,255,0.08), transparent 60%),
-                  radial-gradient(900px 500px at 80% 20%, rgba(255,255,255,0.06), transparent 55%),
-                  linear-gradient(180deg, #0b0f1a, #070a12);
+
+      /* ONE background for the whole page (no footer background at all) */
+      background:
+        radial-gradient(1200px 600px at 20% 10%, rgba(255,255,255,0.08), transparent 60%),
+        radial-gradient(900px 500px at 80% 20%, rgba(255,255,255,0.06), transparent 55%),
+        linear-gradient(180deg, #0b0f1a, #070a12);
+
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
@@ -34,6 +44,11 @@
       width: min(1100px, 100%);
       margin: 0 auto;
       padding: 28px 18px;
+
+      /* Make the page structure stable so footer sits correctly */
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     header {
@@ -115,7 +130,10 @@
     }
 
     /* ---------- Hero ---------- */
-    .hero {
+    main.hero {
+      /* Let hero take remaining space so footer stays at the bottom nicely */
+      flex: 1;
+
       display: grid;
       grid-template-columns: 1fr;
       gap: 40px;
@@ -209,6 +227,9 @@
       gap: 14px;
       flex-wrap: wrap;
       font-size: 13px;
+
+      /* IMPORTANT: footer has NO background, so it can’t “spill” above */
+      background: transparent;
     }
 
     .footer-links {
@@ -234,7 +255,7 @@
     /* IMPORTANT:
        In RTL, Flexbox's main-start becomes the right side automatically.
        So if we keep the HTML order as (logo then name), the logo will appear FIRST (on the right),
-       and the name will come after it (to the left). That’s exactly what you want. */
+       and the name will come after it (to the left). */
     [dir="rtl"] .brand {
       flex-direction: row; /* NOT row-reverse */
     }
@@ -341,6 +362,7 @@
 
     // Apply language
     function setLanguage(lang) {
+      // Save current language
       currentLang = lang;
       localStorage.setItem('lang', lang);
 
