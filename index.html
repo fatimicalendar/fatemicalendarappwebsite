@@ -1,23 +1,18 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <!-- Basic page setup -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light" />
 
-  <!-- SEO / social (optional but nice) -->
   <title>التقويم الفاطمي</title>
   <meta name="description" content="التقويم الفاطمي — تطبيق التقويم بسيط وسريع" />
 
   <style>
-    /* ---------- Reset / base ---------- */
     *, *::before, *::after { box-sizing: border-box; }
 
-    /* Keep html and body aligned so there is only ONE background source */
     html, body { height: 100%; }
 
-    /* Optional: ensure the “page behind” uses the same color as body (still one theme) */
     html { background: #070a12; }
 
     body {
@@ -26,7 +21,6 @@
       line-height: 1.5;
       color: rgba(255, 255, 255, 0.92);
 
-      /* ONE background for the whole page (no footer background at all) */
       background:
         radial-gradient(1200px 600px at 20% 10%, rgba(255,255,255,0.08), transparent 60%),
         radial-gradient(900px 500px at 80% 20%, rgba(255,255,255,0.06), transparent 55%),
@@ -39,13 +33,11 @@
     a { color: inherit; text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* ---------- Layout ---------- */
     .container {
       width: min(1100px, 100%);
       margin: 0 auto;
       padding: 28px 18px;
 
-      /* Make the page structure stable so footer sits correctly */
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -76,15 +68,14 @@
       display: grid;
       place-items: center;
       flex: 0 0 auto;
-      overflow: hidden; /* important so the image stays clipped to rounded corners */
+      overflow: hidden; 
     }
 
-    /* Use appicon.jpg instead of "FC" */
     .logo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 12px; /* matches .logo */
+      border-radius: 12px; 
       display: block;
     }
 
@@ -96,7 +87,6 @@
       text-overflow: ellipsis;
     }
 
-    /* ---------- Language Switcher ---------- */
     .lang-switcher {
       display: flex;
       gap: 6px;
@@ -129,9 +119,7 @@
       font-size: 11px;
     }
 
-    /* ---------- Hero ---------- */
     main.hero {
-      /* Let hero take remaining space so footer stays at the bottom nicely */
       flex: 1;
 
       display: grid;
@@ -159,7 +147,6 @@
       margin-right: auto;
     }
 
-    /* ---------- App Store button ---------- */
     .appstore-btn {
       display: inline-block;
       transition: transform 120ms ease, opacity 120ms ease;
@@ -177,7 +164,6 @@
       display: block;
     }
 
-    /* ---------- Screenshot ---------- */
     .screenshot-section {
       display: grid;
       place-items: center;
@@ -216,7 +202,6 @@
       display: block;
     }
 
-    /* ---------- Footer ---------- */
     footer {
       margin-top: 60px;
       padding: 18px 0 10px;
@@ -229,7 +214,6 @@
       flex-wrap: wrap;
       font-size: 13px;
 
-      /* IMPORTANT: footer has NO background, so it can’t “spill” above */
       background: transparent;
     }
 
@@ -252,16 +236,10 @@
       opacity: 0.8;
     }
 
-    /* ---------- RTL Support ---------- */
-    /* IMPORTANT:
-       In RTL, Flexbox's main-start becomes the right side automatically.
-       So if we keep the HTML order as (logo then name), the logo will appear FIRST (on the right),
-       and the name will come after it (to the left). */
     [dir="rtl"] .brand {
-      flex-direction: row; /* NOT row-reverse */
+      flex-direction: row; 
     }
 
-    /* Optional: make the brand name align nicely in RTL */
     [dir="rtl"] .brand-name {
       text-align: right;
     }
@@ -270,10 +248,8 @@
 
 <body>
   <div class="container">
-    <!-- Top bar -->
     <header>
       <div class="brand">
-        <!-- App icon (same folder as index.html) -->
         <div class="logo" aria-hidden="true">
           <img src="appicon.jpg" alt="" />
         </div>
@@ -281,7 +257,6 @@
         <div class="brand-name" data-i18n="brandName">التقويم الفاطمي</div>
       </div>
 
-      <!-- Language Switcher -->
       <div class="lang-switcher">
         <button class="lang-btn active" data-lang="ar">ع</button>
         <span class="lang-divider">/</span>
@@ -289,7 +264,6 @@
       </div>
     </header>
 
-    <!-- Main hero -->
     <main class="hero">
       <div>
         <h1 class="headline" data-i18n="headline">التقويم الفاطمي</h1>
@@ -297,7 +271,6 @@
           تجربة التقويم نظيفة وسريعة. افتح التطبيق، ابحث عن ما تحتاجه، وواصل يومك.
         </p>
 
-        <!-- App Store badge uses LOCAL image (same folder as index.html) -->
         <a class="appstore-btn" href="#" target="_blank" rel="noopener noreferrer">
           <img
             id="appStoreBadge"
@@ -307,7 +280,6 @@
         </a>
       </div>
 
-      <!-- Screenshot -->
       <div class="screenshot-section">
         <div class="phone-frame">
           <div class="phone-notch" aria-hidden="true"></div>
@@ -316,11 +288,10 @@
       </div>
     </main>
 
-    <!-- Footer with Privacy + Terms -->
     <footer>
       <div class="footer-links">
-        <a href="privacy.html" data-i18n="privacyPolicy">سياسة الخصوصية</a>
-        <a href="terms.html" data-i18n="termsOfUse">شروط الاستخدام</a>
+        <a id="privacyLink" href="privacy-ar.html" data-i18n="privacyPolicy">سياسة الخصوصية</a>
+        <a id="termsLink" href="terms-ar.html" data-i18n="termsOfUse">شروط الاستخدام</a>
       </div>
 
       <div class="copyright">
@@ -330,7 +301,7 @@
   </div>
 
   <script>
-    // Comment: All translations for the landing page text live here.
+
     const translations = {
       ar: {
         brandName: 'التقويم الفاطمي',
@@ -341,10 +312,10 @@
         screenshotAlt: 'لقطة شاشة لتطبيق التقويم الفاطمي',
         title: 'التقويم الفاطمي',
         description: 'التقويم الفاطمي — تطبيق التقويم بسيط وسريع',
-        // Comment: Local badge image path (same folder as index.html)
         appStoreBadge: 'download-on-the-app-store.jpg',
-        // Comment: Alt text for the badge in this language
-        appStoreAlt: 'التحميل من متجر التطبيقات'
+        appStoreAlt: 'التحميل من متجر التطبيقات',
+        privacyHref: 'privacy-ar.html',
+        termsHref: 'terms-ar.html'
       },
       en: {
         brandName: 'Fatemi Calendar',
@@ -355,64 +326,59 @@
         screenshotAlt: 'Fatemi Calendar app screenshot',
         title: 'Fatemi Calendar',
         description: 'Fatemi Calendar — a simple, fast calendar app.',
-        // Comment: Same local badge image file (you can swap to an English version later if you want)
         appStoreBadge: 'download-on-the-app-store.jpg',
-        // Comment: Alt text for the badge in this language
-        appStoreAlt: 'Download on the App Store'
+        appStoreAlt: 'Download on the App Store',
+        privacyHref: 'privacy.html',
+        termsHref: 'terms.html'
       }
     };
 
-    // Comment: Get saved language or default to Arabic
     let currentLang = localStorage.getItem('lang') || 'ar';
 
-    // Comment: Set the copyright year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Comment: Apply language to the page
+ 
     function setLanguage(lang) {
-      // Comment: Save current language
       currentLang = lang;
       localStorage.setItem('lang', lang);
 
-      // Comment: Update HTML attributes
       document.documentElement.lang = lang;
       document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
 
-      // Comment: Update meta tags
       document.title = translations[lang].title;
       document.querySelector('meta[name="description"]').content = translations[lang].description;
 
-      // Comment: Update all text content
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         el.textContent = translations[lang][key];
       });
 
-      // Comment: Update alt attributes
       document.querySelectorAll('[data-i18n-alt]').forEach(el => {
         const key = el.getAttribute('data-i18n-alt');
         el.alt = translations[lang][key];
       });
 
-      // Comment: Update App Store badge to local file (and alt text per language)
       const badge = document.getElementById('appStoreBadge');
       badge.src = translations[lang].appStoreBadge;
       badge.alt = translations[lang].appStoreAlt;
 
-      // Comment: Update active button styles
+
+      const privacyLink = document.getElementById('privacyLink');
+      const termsLink = document.getElementById('termsLink');
+      if (privacyLink) privacyLink.href = translations[lang].privacyHref;
+      if (termsLink) termsLink.href = translations[lang].termsHref;
+
       document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.lang === lang);
       });
     }
 
-    // Comment: Language switcher event listeners
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         setLanguage(btn.dataset.lang);
       });
     });
 
-    // Comment: Initialize with saved or default language
     setLanguage(currentLang);
   </script>
 </body>
