@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
@@ -68,7 +67,7 @@
       display: grid;
       place-items: center;
       flex: 0 0 auto;
-      overflow: hidden; 
+      overflow: hidden;
     }
 
     .logo span {
@@ -178,6 +177,14 @@
 
     .footer-links a { opacity: 0.85; }
     .footer-links a:hover { opacity: 1; }
+
+    /* Email link should look like a normal blue hyperlink */
+    .email-link {
+      color: #5aa7ff;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .email-link:hover { opacity: 0.95; }
   </style>
 </head>
 
@@ -186,7 +193,7 @@
     <div class="topbar">
       <div class="brand">
         <div class="logo" aria-hidden="true"><span>FC</span></div>
-        <div class="brand-name">التوقيم الفاطمي</div>
+        <div class="brand-name">التقويم الفاطمي</div>
       </div>
 
       <a class="back-link" href="index.html">رجوع</a>
@@ -218,7 +225,11 @@
         إذا كان لديك أي أسئلة حول هذه السياسة، يمكنك التواصل معنا عبر:
       </p>
       <ul>
-        <li>البريد الإلكتروني: <code>fatemicalendar@gmail.com</code></li>
+        <li>
+          <a id="supportEmailLink" class="email-link" href="#" rel="nofollow">
+            تواصل عبر البريد الإلكتروني
+          </a>
+        </li>
       </ul>
     </main>
 
@@ -233,8 +244,17 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    (function () {
+      const user = "fatemicalendar";
+      const domain = "gmail";
+      const tld = "com";
+      const email = `${user}@${domain}.${tld}`;
+
+      const link = document.getElementById("supportEmailLink");
+      const subject = encodeURIComponent("استفسار بخصوص سياسة الخصوصية");
+      link.href = `mailto:${email}?subject=${subject}`;
+    })();
   </script>
 </body>
 </html>
-```
-
