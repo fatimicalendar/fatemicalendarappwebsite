@@ -1,15 +1,9 @@
-<!--
-  Fatemi Calendar — سياسة الخصوصية (صفحة عربية بملف واحد)
-  - قصيرة وواضحة
-  - لا جمع بيانات، لا حسابات، لا تحليلات
-  - احفظ الملف باسم: privacy-ar.html (مثال)
-  - عدّل: [آخر تحديث] و [البريد] و رابط الرجوع إن احتجت
--->
+
+
 
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <!-- إعدادات الصفحة الأساسية -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light" />
@@ -18,18 +12,22 @@
   <meta name="description" content="سياسة الخصوصية لتطبيق تقويم فاطمي." />
 
   <style>
-    /* ---------- أساسيات ---------- */
     *, *::before, *::after { box-sizing: border-box; }
     html, body { height: 100%; }
+
+    html { background: #070a12; }
 
     body {
       margin: 0;
       font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
       line-height: 1.8;
       color: rgba(255,255,255,0.92);
-      background: radial-gradient(1200px 600px at 20% 10%, rgba(255,255,255,0.08), transparent 60%),
-                  radial-gradient(900px 500px at 80% 20%, rgba(255,255,255,0.06), transparent 55%),
-                  linear-gradient(180deg, #0b0f1a, #070a12);
+
+      background:
+        radial-gradient(1200px 600px at 20% 10%, rgba(255,255,255,0.08), transparent 60%),
+        radial-gradient(900px 500px at 80% 20%, rgba(255,255,255,0.06), transparent 55%),
+        linear-gradient(180deg, #0b0f1a, #070a12);
+
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
@@ -37,11 +35,14 @@
     a { color: inherit; text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* ---------- تخطيط ---------- */
     .container {
       width: min(900px, 100%);
       margin: 0 auto;
       padding: 28px 18px;
+
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     .topbar {
@@ -69,6 +70,7 @@
       display: grid;
       place-items: center;
       flex: 0 0 auto;
+      overflow: hidden; 
     }
 
     .logo span {
@@ -98,6 +100,8 @@
       box-shadow: 0 18px 45px rgba(0,0,0,0.35);
       overflow: hidden;
       padding: 22px;
+
+      flex: 1;
     }
 
     @media (max-width: 600px) {
@@ -150,7 +154,7 @@
       border: 1px solid rgba(255,255,255,0.12);
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       font-size: 0.95em;
-      direction: ltr; /* حتى لو الصفحة RTL */
+      direction: ltr; 
       unicode-bidi: plaintext;
     }
 
@@ -165,6 +169,8 @@
       gap: 14px;
       flex-wrap: wrap;
       font-size: 13px;
+
+      background: transparent;
     }
 
     .footer-links {
@@ -181,18 +187,15 @@
 
 <body>
   <div class="container">
-    <!-- الشريط العلوي -->
     <div class="topbar">
       <div class="brand">
         <div class="logo" aria-hidden="true"><span>FC</span></div>
         <div class="brand-name">تقويم فاطمي</div>
       </div>
 
-      <!-- عدّل الرابط حسب ملف صفحتك الرئيسية -->
       <a class="back-link" href="index.html">رجوع</a>
     </div>
 
-    <!-- المحتوى -->
     <main class="card">
       <h1>سياسة الخصوصية</h1>
       <p class="meta">آخر تحديث: <strong>[26 ديسمبر 2025]</strong></p>
@@ -251,7 +254,6 @@
       </ul>
     </main>
 
-    <!-- تذييل -->
     <footer>
       <div class="footer-links">
         <a href="privacy-ar.html">سياسة الخصوصية</a>
@@ -262,7 +264,6 @@
   </div>
 
   <script>
-    // تحديث سنة حقوق النشر تلقائيًا
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
